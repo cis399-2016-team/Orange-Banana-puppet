@@ -1,4 +1,4 @@
-class ssh {
+class sshd {
 	package {
 		"openssh-server": ensure => installed;
 	}
