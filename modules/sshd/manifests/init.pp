@@ -6,7 +6,7 @@ class sshd {
 	file { "/etc/ssh/sshd_config":
 		source  => [
 			# from modules/sshd/files/sshd_config
-			"puppet:///modules/sshd/sshd_config,
+			"puppet:///modules/sshd/sshd_config",
 		],
 		mode    => 444,
 		owner   => root,
@@ -29,5 +29,9 @@ class sshd {
 			   File["/etc/ssh/sshd_config"] ],
 		#changes to configuration cause service restart
 		subscribe  => File["/etc/ssh/sshd_config"],
+	}
+	
+	ssh_authorized_key { "CIS399":
+		user => "ubuntu" 
 	}
 }
