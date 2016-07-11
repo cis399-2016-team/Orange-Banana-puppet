@@ -15,7 +15,7 @@ class sshd {
 		require => Package["openssh-server"],
 	}
 
-	service { "sshd":
+	service { "ssh":
 		# automatically start at boot time
 		enable     => true,
 		# restart service if it is not running
