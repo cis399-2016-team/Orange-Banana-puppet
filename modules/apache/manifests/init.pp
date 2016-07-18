@@ -1,5 +1,5 @@
 class apache {
-	case $operatingystem {
+	case $operatingsystem {
 		"Ubuntu":{
 			$apacheconf = "/etc/apache2/apache2.conf"
 			$package = "apache2"
