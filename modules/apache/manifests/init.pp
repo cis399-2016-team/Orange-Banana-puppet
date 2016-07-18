@@ -17,7 +17,7 @@ class apache {
 		}
 	}
 
-	file { "$apacheconf":
+	file { $apacheconf:
 		source  => [
 			# from modules/apache2/files/apache2.conf
 			"puppet:///modules/apache2/apache2.conf",
@@ -40,8 +40,8 @@ class apache {
 		hasrestart => true,
 		# package and configuration must be present for service
 		require    => [ Package["apache2"],
-			   File["/etc/apache2/apache2.conf"] ],
+			   File[$apacheconf] ],
 		#changes to configuration cause service restart
-		subscribe  => File["/etc/apache2/apache2.conf"],
+		subscribe  => File[$apacheconf],
 	}
 }
