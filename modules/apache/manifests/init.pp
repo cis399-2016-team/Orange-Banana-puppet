@@ -1,9 +1,23 @@
 class apache {
-	package {
-		"apache2": ensure => installed;
+	case $operatingystem {
+		"Ubuntu": {
+			package { "apache2": ensure => installed; }
+		}
+		"Amazon": {
+			package { "httpd": ensure => installed; }
+		}
 	}
 
-	file { "/etc/apache2/apache2.conf":
+	case $operatingystem {
+		"Ubuntu": {
+			$apacheconf = "/etc/apache2/apache2.conf"
+		}
+		"Amazon": {
+			$apacheconf = "/etc/httpd/httpd.conf"
+		}
+	}
+
+	file { "$apacheconf":
 		source  => [
 			# from modules/apache2/files/apache2.conf
 			"puppet:///modules/apache2/apache2.conf",
