@@ -1,10 +1,10 @@
 class apache {
 	case $operatingystem {
-		"Ubuntu": {
+		"Ubuntu":{
 			$apacheconf = "/etc/apache2/apache2.conf"
 			$package = "apache2"
 		}
-		"Amazon": {
+		"Amazon":{
 			$apacheconf = "/etc/httpd/httpd.conf"
 			$package = "httpd"
 		}
