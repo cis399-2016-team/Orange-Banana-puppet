@@ -1,20 +1,17 @@
 class apache {
 	case $operatingystem {
 		"Ubuntu": {
-			package { "apache2": ensure => installed; }
-		}
-		"Amazon": {
-			package { "httpd": ensure => installed; }
-		}
-	}
-
-	case $operatingystem {
-		"Ubuntu": {
 			$apacheconf = "/etc/apache2/apache2.conf"
+			$package = "apache2"
 		}
 		"Amazon": {
 			$apacheconf = "/etc/httpd/httpd.conf"
+			$package = "httpd"
 		}
+	}
+
+	package { 
+		$package: ensure => installed; 
 	}
 
 	file { $apacheconf:
@@ -26,7 +23,7 @@ class apache {
 		owner   => root,
 		group   => root,
 		# package must be installed before configuration file
-		require => Package["apache2"],
+		require => Package[$package],
 	}
 
 	service { "apache2":
