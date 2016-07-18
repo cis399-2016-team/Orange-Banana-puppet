@@ -17,7 +17,7 @@ class apache {
 	file { "$apacheconf":
 		source  => [
 			# from modules/apache2/files/apache2.conf
-			"puppet:///modules/apache2/apache2.conf",
+			"puppet:///modules/apache/apache2.conf",
 		],
 		mode    => 444,
 		owner   => root,
