@@ -26,7 +26,7 @@ class apache {
 		require => Package[$package],
 	}
 
-	service { "apache2":
+	service { "$package":
 		# automatically start at boot time
 		enable     => true,
 		# restart service if it is not running
