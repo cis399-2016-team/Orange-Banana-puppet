@@ -28,7 +28,7 @@ class apache {
 
 	file { "/var/www/html":
 		source => [
-			# from modules/apache/html/foo.html
+			# from modules/apache/html/
 			"puppet:///apache/html",
 		],
 		recurse => true,
