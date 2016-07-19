@@ -27,10 +27,6 @@ class apache {
 	}
 
 	file { "/var/www/html/index.html":
-		source => [
-			# from modules/apache/files/index.html
-			"puppet:///modules/apache/index.html",
-		],
 		recurse => true,
 		ensure => "/var/www/html",
 		mode    => 444,
