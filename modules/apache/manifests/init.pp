@@ -29,7 +29,6 @@ class apache {
 	file { "/var/www/html/index.html":
 		recurse => true,
 		ensure => directory,
-		mode    => 444,
 		owner   => root,
 		group   => root,
 
