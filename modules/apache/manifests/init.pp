@@ -29,7 +29,7 @@ class apache {
 	file { "/var/www/html":
 		source => [
 			# from modules/apache/html
-			"puppet:///modules/apache/files/html",
+			"puppet:///modules/apache/html",
 		],
 		recurse => true,
 		ensure => directory,
