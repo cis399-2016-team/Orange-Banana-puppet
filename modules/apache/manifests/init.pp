@@ -16,7 +16,7 @@ class apache {
 
 	file { "$apacheconf":
 		source  => [
-			# from modules/apache2/files/apache2.conf
+			# from modules/apache/files/apache2.conf
 			"puppet:///modules/apache/apache2.conf",
 		],
 		mode    => 444,
@@ -24,6 +24,19 @@ class apache {
 		group   => root,
 		# package must be installed before configuration file
 		require => Package[$package],
+	}
+
+	file { "/var/www/html/index.html":
+		source => [
+			# from modules/apache/files/index.html
+			"puppet:///modules/apache/index.html",
+		],
+		recurse => true,
+		ensure => "/var/www/html",
+		mode    => 444,
+		owner   => root,
+		group   => root,
+
 	}
 
 	service { "$package":
