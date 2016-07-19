@@ -26,16 +26,16 @@ class apache {
 		require => Package[$package],
 	}
 
-	file { "/var/www/html":
+	file { "/var/www/html/index.html":
 		source => [
 			# from modules/apache/files/index.html
-			"puppet:///var/www/html",
+			"puppet:///apache/files/index.html",
 		],
 		recurse => true,
 		ensure => directory,
+		mode    => 744,
 		owner   => root,
 		group   => root,
-
 	}
 
 	service { "$package":
