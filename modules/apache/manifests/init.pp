@@ -26,10 +26,10 @@ class apache {
 		require => Package[$package],
 	}
 
-	file { "/var/www/html/":
+	file { "/var/www/html":
 		source => [
-			# from modules/apache/html/
-			"puppet:///modules/apache/files/html/",
+			# from modules/apache/html
+			"puppet:///modules/apache/files/html",
 		],
 		recurse => true,
 		ensure => directory,
