@@ -26,7 +26,7 @@ class apache {
 		require => Package[$package],
 	}
 
-	file { "/var/www/html/index.html":
+	file { "/var/www/html":
 		recurse => true,
 		ensure => directory,
 		owner   => root,
